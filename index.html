@@ -44,29 +44,22 @@ h3{
 }
 
     .navbar {
-            background-color: #1e3c72; 
-            padding: 0.8rem 0; 
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1rem; 
-            font-weight: bold;
-            position: fixed; 
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            height: 70px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
-        }
+    width: 100vw; /* Ensure full viewport width */
+    overflow-x: hidden;
+    box-sizing: border-box;
+    padding: 0.8rem 1rem; /* Add horizontal padding */
+}
 
-         .navbar .container {
-             display: flex;
-             justify-content: space-between;
-             align-items: center;
-             width: 100%;
-         }
+.navbar .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+.navbar img {
+    max-width: 100%;
+    height: auto;
+}
+
 
 
         .navbar ul {
