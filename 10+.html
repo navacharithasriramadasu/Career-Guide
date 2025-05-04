@@ -13,71 +13,90 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f7f6;
-    color: #333;
-    padding-bottom: 60px; 
-}
-.navbar1 {
+            font-family: "Inter", sans-serif;
+      }
+ .navbar {
             background-color: #1e3c72; 
-            padding: 0.8rem 0; 
+            padding: 1rem;
             color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 1rem; 
             font-weight: bold;
-            position: fixed; 
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            height: 70px;
+            height: 90px;
             z-index: 1000;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
         }
 
-         .navbar1 .container {
-             display: flex;
-             justify-content: space-between;
-             align-items: center;
-             width: 100%;
-         }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 0 1rem; 
+        }
 
-
-        .navbar1 ul {
+        .navbar-links {
             display: flex;
             justify-content: flex-end;
             list-style: none;
             gap: 2rem; 
-            margin: -150px; 
+            margin: 0; 
             padding: 0; 
         }
 
-        .navbar1 ul li a {
+        .navbar-links li a {
             text-decoration: none;
             color: white; 
-            font-weight: 500; 
+            font-weight: 600; 
             padding: 0.5rem 0.8rem;
             border-radius: 4px;
             transition: background-color 0.3s ease;
         }
-
-         .navbar1 ul li a:hover {
-             background-color: rgba(255, 255, 255, 0.1); 
-         }
-
-
-        .navbar1 .logo {
-            height: 40px; 
-            filter: invert(1); 
+         .navbar-links li a:hover {
+            background-color: rgba(255, 255, 255, 0.1); 
         }
 
+
+        .navbar .logo {
+            height: 70px; 
+            width: auto;
+             filter: invert(1); 
+        }
+
+       
+        .mobile-menu-button {
+            display: none; 
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            outline: none;
+        }
+
+        .mobile-menu-button .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+        }
+
+       
+        .logo-card {
+            flex-shrink: 0;
+       }
 header, footer {
     background-color: #005f73; 
     color: #ffffff;
     text-align: center;
-    padding: 5rem 0;
+    padding: 4rem 0;
     margin-bottom: 4rem;
 }
 footer {
@@ -250,6 +269,66 @@ h2 {
 
 
 @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0.8rem;
+                height: auto; 
+            }
+
+            .navbar .container {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0;
+            }
+
+            .navbar-links {
+                display: none; 
+                flex-direction: column;
+                width: 100%;
+                margin-top: 0.5rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.2); 
+            }
+
+            .navbar-links.active {
+                display: flex; 
+            }
+
+            .navbar-links li {
+                width: 100%;
+                text-align: center;
+                margin: 0.5rem 0;
+            }
+
+            .navbar-links li a {
+                display: block; 
+                padding: 0.75rem 1rem;
+            }
+
+            .mobile-menu-button {
+                display: block; 
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .mobile-menu-button.open .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .mobile-menu-button.open .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-button.open .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+@media (max-width: 768px) {
     .branches {
         flex-direction: column; 
         padding-left: 1rem;
@@ -267,21 +346,27 @@ h2 {
 }
     </style>
     </head>
-<body>
-    <header class="navbar1">
-        <div class="container">
-            <div  class="logo-box">
-                <img style="height: 70px; width: 200px;" src="Care (1)(1).png" alt="Career Guidance Logo" >
-            </div>
-            <ul>
+    <body class="bg-gray-100">
+
+<div class="navbar">
+    <div class="container">
+        <img style="height: 70px; width: auto;" src="Care (1)(1).png" alt="Career Guidance Logo" >
+        <nav>
+            <button class="mobile-menu-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="navbar-links">
                 <li style="font-size: x-large;"><a href="index.html">Home</a></li>
                 <li style="font-size: x-large;"><a href="aboutus.html">About us</a></li>
                 <li style="font-size: x-large;"><a href="contact.html">Contact</a></li>
             </ul>
-        </div>
-    </header>
+        </nav>
+    </div>
+</div>
 
-    <header style="padding-top: 130px;">
+    <header style="padding-top: 50px;">
         <h1>Career Guidance: After 10th Standard</h1>
         <p>Explore the major academic and vocational paths available.</p>
     </header>
@@ -521,6 +606,15 @@ h2 {
         });
     });
 });
+    </script>
+        <script>
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const navbarLinks = document.querySelector('.navbar-links');
+
+        mobileMenuButton.addEventListener('click', () => {
+            navbarLinks.classList.toggle('active');
+            mobileMenuButton.classList.toggle('open');
+        });
     </script>
 </body>
 </html>
